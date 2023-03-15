@@ -28,8 +28,11 @@
       </div>
       <br>
       <hr>
+      <br>
       <h2 class="text-lg font-semibold mb-2">Copier Coller le code dans un favoris [a la place de l'URL], est cliqué dessus quand vous etes sur la signature SoWeSign</h2>
+      <br>
       <hr>
+      
       <div class="p-4 bg-teal-100  rounded w-full max-w-2xl mt-4 shadow-lg">
         <h2 class="text-lg font-semibold mb-2">Qu'est-ce qu'un bookmarklet ?</h2>
         <p class="text-gray-600 text-sm mb-4">Un bookmarklet est un petit programme JavaScript qui peut être enregistré
@@ -155,7 +158,7 @@ export default {
 }
 hr {
   border: solid 2px #2563eb;
-  height: 0.2vh;
+  height: 0.4vh;
   width: 43vw;
   background-color: #333;
   margin-top: 1rem;
