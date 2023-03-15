@@ -6,8 +6,6 @@
         SoWeSign en un clique
       </h1>
       <br>
-
-
       <div class="w-full max-w-2xl p-4 bg-white shadow-lg rounded flex flex-col items-center">
         <canvas ref="canvas" width="600" height="400" @mousedown="startDrawing" @mousemove="draw" @mouseup="stopDrawing"
           class="border-2 border-gray-300 shadow-lg"></canvas>
@@ -17,14 +15,12 @@
             ça</button>
           <button @click="undo"
             class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded shadow-lg">Ctrl Z</button>
-          
           <button @click="generateBookmarkletCode"
             class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded shadow-lg">Générer le
             code</button>
           <button v-if="showBookmarkletCode" @click="copyCode"
             class="bg-yellow-500 hover:bg-yellow-800 text-white font-bold py-2 px-4 rounded shadow-lg">Ctrl C</button>
         </div>
-
       </div>
       <div class="w-1/2 flex justify-end" v-if="showBookmarkletCode">
         <textarea ref="bookmarkletCode" readonly :value="minifiedCode" rows="10" cols="50"
@@ -47,16 +43,7 @@
     </div>
   </div>
 </template>
-
-
-
-
-
-
-
 <script>
-
-
 export default {
   data() {
     return {
@@ -71,8 +58,6 @@ export default {
   mounted() {
     this.context = this.$refs.canvas.getContext("2d");
   },
-
-
   methods: {
     getCursorPosition(event) {
       const rect = this.$refs.canvas.getBoundingClientRect();
@@ -81,7 +66,6 @@ export default {
         y: event.clientY - rect.top
       };
     },
-
     copyCode() {
       navigator.clipboard.writeText(this.minifiedCode);
     },
@@ -89,7 +73,6 @@ export default {
       this.drawing = true;
       this.coordinates.push({ x: event.offsetX, y: event.offsetY, moveTo: true });
     },
-
     draw(event) {
       if (!this.drawing) return;
       const x = event.offsetX;
@@ -97,8 +80,6 @@ export default {
       this.coordinates.push({ x, y });
       this.redrawLines(this.coordinates);
     },
-
-
     stopDrawing() {
       this.drawing = false;
     },
@@ -121,67 +102,30 @@ export default {
       }
     },
     undo() {
-  const moveToIndices = this.coordinates.reduce((acc, point, i) => {
-    if (point.moveTo) {
-      acc.push(i);
-    }
-    return acc;
-  }, []);
+      const moveToIndices = this.coordinates.reduce((acc, point, i) => {
+        if (point.moveTo) {
+          acc.push(i);
+        }
+        return acc;
+      }, []);
 
-  if (moveToIndices.length <= 1) {
-    this.clearCanvas();
-  } else {
-    const index = moveToIndices[moveToIndices.length - 1];
-    this.coordinates.splice(index);
-    this.redrawLines(this.coordinates);
-  }
-},
-
+      if (moveToIndices.length <= 1) {
+        this.clearCanvas();
+      } else {
+        const index = moveToIndices[moveToIndices.length - 1];
+        this.coordinates.splice(index);
+        this.redrawLines(this.coordinates);
+      }
+    },
 
     clearCanvas() {
       this.coordinates = [];
       this.context.clearRect(0, 0, this.$refs.canvas.width, this.$refs.canvas.height);
     },
-
-
     async generateBookmarkletCode() {
       this.drawingData = this.coordinates;
       const drawingDataString = JSON.stringify(this.drawingData);
-      const bookmarkletCode = `
-    javascript:(function(){
-      const drawingData = ${drawingDataString};
-      function drawOnCanvas(drawingData) {
-        const canvas = document.querySelector('canvas');
-        if (!canvas) {
-            console.error('bug pas trouvé le canvas');
-            return;
-        }
-        const ctx = canvas.getContext('2d');
-        
-        function redrawLines(ctx, coordinates) {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-            for (let i = 0; i < coordinates.length - 1; i++) {
-                const startPoint = coordinates[i];
-                const endPoint = coordinates[i + 1];
-
-                if (endPoint.moveTo) continue;
-
-                ctx.beginPath();
-                ctx.moveTo(startPoint.x, startPoint.y);
-                ctx.lineTo(endPoint.x, endPoint.y);
-                ctx.strokeStyle = 'black';
-                ctx.lineWidth = 5;
-                ctx.stroke();
-                ctx.closePath();
-            }
-        }
-
-        redrawLines(ctx, drawingData);
-    }
-
-    drawOnCanvas(drawingData);
-})();`;
+      const bookmarkletCode = `javascript:(function(){const drawingData = ${drawingDataString};function drawOnCanvas(drawingData) {const canvas = document.querySelector('canvas');if (!canvas) {console.error('bug pas trouvé le canvas');return;}const ctx = canvas.getContext('2d');function redrawLines(ctx, coordinates) {ctx.clearRect(0, 0, canvas.width, canvas.height);for (let i = 0; i < coordinates.length - 1; i++) {const startPoint = coordinates[i];const endPoint = coordinates[i + 1];if (endPoint.moveTo) continue;ctx.beginPath();ctx.moveTo(startPoint.x, startPoint.y);ctx.lineTo(endPoint.x, endPoint.y);ctx.strokeStyle = 'black';ctx.lineWidth = 5;ctx.stroke();ctx.closePath();}}redrawLines(ctx, drawingData);}drawOnCanvas(drawingData);})();`;
 
       this.minifiedCode = bookmarkletCode;
       this.showBookmarkletCode = true;
