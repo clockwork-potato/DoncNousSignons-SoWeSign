@@ -29,7 +29,7 @@
       <br>
       <hr>
       <br>
-      <h2 class="text-lg font-semibold mb-2">Copier Coller le code dans un favoris [a la place de l'URL], est cliqué dessus quand vous etes sur la signature SoWeSign</h2>
+      <h1 class="text-xl font-bold mb-1">Copier Coller le code dans un favoris [a la place de l'URL], est cliqué dessus quand vous etes sur la signature SoWeSign</h1>
       <br>
       <hr>
       
@@ -159,7 +159,7 @@ export default {
 hr {
   border: solid 2px #2563eb;
   height: 0.4vh;
-  width: 43vw;
+  width: 38vw;
   background-color: #333;
   margin-top: 1rem;
   margin-bottom: 1rem;
