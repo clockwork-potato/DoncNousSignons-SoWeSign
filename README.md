@@ -1,6 +1,8 @@
 # DoncNousSignons
 
-This template should help get you started developing with Vue 3 in Vite.
+passer le code copier dans
+https://minify-js.com/
+Puis mettre le tout dans un bookmark a la place de l'url
 
 ## Recommended IDE Setup
 
