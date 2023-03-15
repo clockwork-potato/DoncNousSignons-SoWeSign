@@ -19,10 +19,10 @@
             class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded shadow-lg">Ctrl Z</button>
           
           <button @click="generateBookmarkletCode"
-            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded shadow-lg">Générer le
+            class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded shadow-lg">Générer le
             code</button>
           <button v-if="showBookmarkletCode" @click="copyCode"
-            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded shadow-lg">Ctrl C</button>
+            class="bg-yellow-500 hover:bg-yellow-800 text-white font-bold py-2 px-4 rounded shadow-lg">Ctrl C</button>
         </div>
 
       </div>
