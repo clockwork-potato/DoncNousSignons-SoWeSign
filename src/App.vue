@@ -3,21 +3,24 @@
     <div class="flex flex-col items-center justify-center h-full">
       <br>
       <h1 class="text-7xl mb-4 font-extrabold text-blue-500 to-blue-900">
-  SoWeSign en un clique
-</h1>
-<br>
+        SoWeSign en un clique
+      </h1>
+      <br>
 
 
       <div class="w-full max-w-2xl p-4 bg-white shadow-lg rounded flex flex-col items-center">
         <canvas ref="canvas" width="600" height="400" @mousedown="startDrawing" @mousemove="draw" @mouseup="stopDrawing"
           class="border-2 border-gray-300 shadow-lg"></canvas>
         <div class="mt-2 flex flex-wrap gap-2 items-center justify-center">
-          <button @click="undo" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded shadow-lg">Reset moi
+          <button @click="clearCanvas"
+            class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded shadow-lg">Reset moi
             ça</button>
-          <button @click="clearCanvas" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded shadow-lg">Ctrl
-            Z</button>
+          <button @click="undo"
+            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded shadow-lg">Ctrl Z</button>
+          
           <button @click="generateBookmarkletCode"
-            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded shadow-lg">Générer le code</button>
+            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded shadow-lg">Générer le
+            code</button>
           <button v-if="showBookmarkletCode" @click="copyCode"
             class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded shadow-lg">Ctrl C</button>
         </div>
@@ -43,7 +46,6 @@
       <br>
     </div>
   </div>
-
 </template>
 
 
@@ -72,6 +74,14 @@ export default {
 
 
   methods: {
+    getCursorPosition(event) {
+      const rect = this.$refs.canvas.getBoundingClientRect();
+      return {
+        x: event.clientX - rect.left,
+        y: event.clientY - rect.top
+      };
+    },
+
     copyCode() {
       navigator.clipboard.writeText(this.minifiedCode);
     },
@@ -111,17 +121,23 @@ export default {
       }
     },
     undo() {
-      const index = this.coordinates
-        .map((point, i) => (point.moveTo ? i : -1))
-        .filter((i) => i !== -1)
-        .slice(-2)[0];
-      if (index > 0) {
-        this.coordinates.splice(index);
-        this.redrawLines(this.coordinates);
-      } else {
-        this.clearCanvas();
-      }
-    },
+  const moveToIndices = this.coordinates.reduce((acc, point, i) => {
+    if (point.moveTo) {
+      acc.push(i);
+    }
+    return acc;
+  }, []);
+
+  if (moveToIndices.length <= 1) {
+    this.clearCanvas();
+  } else {
+    const index = moveToIndices[moveToIndices.length - 1];
+    this.coordinates.splice(index);
+    this.redrawLines(this.coordinates);
+  }
+},
+
+
     clearCanvas() {
       this.coordinates = [];
       this.context.clearRect(0, 0, this.$refs.canvas.width, this.$refs.canvas.height);
