@@ -1,12 +1,12 @@
 <template>
-  <div class="min-h-screen bg-slate-100">
+  <div class="min-h-screen bg-cyan-100">
     <div class="flex flex-col items-center justify-center h-full">
       <br>
       <h1 class="text-7xl mb-4 font-extrabold text-blue-500 to-blue-900">
         SoWeSign en un clique
       </h1>
       <br>
-      <div class="w-full max-w-2xl p-4 bg-white shadow-lg rounded flex flex-col items-center">
+      <div class="w-full max-w-2xl p-4 bg-teal-100 shadow-lg rounded flex flex-col items-center">
         <canvas ref="canvas" width="600" height="400" @mousedown="startDrawing" @mousemove="draw" @mouseup="stopDrawing"
           class="border-2 border-gray-300 shadow-lg"></canvas>
         <div class="mt-2 flex flex-wrap gap-2 items-center justify-center">
@@ -29,7 +29,7 @@
       <hr>
       <h2 class="text-lg font-semibold mb-2">Copier Coller le code dans un favoris [a la place de l'URL], est cliqué dessus quand vous etes sur la signature SoWeSign</h2>
       <hr>
-      <div class="p-4 bg-gray-100 rounded w-full max-w-2xl mt-4 shadow-lg">
+      <div class="p-4 bg-teal-100  rounded w-full max-w-2xl mt-4 shadow-lg">
         <h2 class="text-lg font-semibold mb-2">Qu'est-ce qu'un bookmarklet ?</h2>
         <p class="text-gray-600 text-sm mb-4">Un bookmarklet est un petit programme JavaScript qui peut être enregistré
           dans les favoris ou les signets de votre navigateur. Lorsqu'il est cliqué, il exécute le code JavaScript contenu
