@@ -133,7 +133,6 @@ export default {
       this.drawingData = this.coordinates;
       const drawingDataString = JSON.stringify(this.drawingData);
       const bookmarkletCode = `javascript:(function(){const drawingData = ${drawingDataString};function drawOnCanvas(drawingData) {const canvas = document.querySelector('canvas');if (!canvas) {console.error('bug pas trouvé le canvas');return;}const ctx = canvas.getContext('2d');function redrawLines(ctx, coordinates) {ctx.clearRect(0, 0, canvas.width, canvas.height);for (let i = 0; i < coordinates.length - 1; i++) {const startPoint = coordinates[i];const endPoint = coordinates[i + 1];if (endPoint.moveTo) continue;ctx.beginPath();ctx.moveTo(startPoint.x, startPoint.y);ctx.lineTo(endPoint.x, endPoint.y);ctx.strokeStyle = 'black';ctx.lineWidth = 5;ctx.stroke();ctx.closePath();}}redrawLines(ctx, drawingData);}drawOnCanvas(drawingData);})();`;
-
       this.minifiedCode = bookmarkletCode;
       this.showBookmarkletCode = true;
     },
