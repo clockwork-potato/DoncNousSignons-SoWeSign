@@ -1,33 +1,21 @@
-# Dispo sur https://wonderful-puppy-a2028c.netlify.app/
+# Application de dessin Vue.js
 
-# DoncNousSignons
+Une simple application de dessin créée avec Vue.js et stylisée avec Tailwind CSS. Le site est déployé à cette adresse : https://wonderful-puppy-a2028c.netlify.app/
 
-passer le code copier dans
-https://minify-js.com/
-Puis mettre le tout dans un bookmark a la place de l'url
+## Fonctionnalités
 
-## Recommended IDE Setup
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+- Dessiner sur un canvas en maintenant le bouton gauche de la souris enfoncé
+- Annuler la dernière action dessinée en cliquant sur le bouton "Annuler"
+- Effacer le dessin entièrement en cliquant sur le bouton "Effacer"
+- Générer un code bookmarklet pour reproduire le dessin sur un autre canvas en cliquant sur le bouton "Générer le code Bookmarklet"
+- Copier le code bookmarklet généré en cliquant sur le bouton "Copier le code"
 
-## Customize configuration
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+## Ensuite
 
-## Project Setup
 
-```sh
-npm install
-```
+-[minify js](https://minify-js.com/) du code de sortie
+-faire un favoris en ramplacant l'url par le code minifier
 
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
+### Un bookmarklet est un petit programme JavaScript stocké sous forme de favori dans un navigateur Web. Il peut être utilisé pour exécuter des actions ou des modifications sur une page Web ou pour extraire des informations de celle-ci.
