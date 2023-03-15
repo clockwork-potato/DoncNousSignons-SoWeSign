@@ -1,10 +1,7 @@
 <template>
   <div class="container min-h-screen flex flex-col items-center justify-center bg-gray-100">
-    <h1 class="text-4xl mb-4 font-semibold">Application de dessin Vue.js</h1>
-    <p class="mb-4 text-xl text-gray-600 max-w-3xl text-center">
-      Une simple application de dessin créée avec Vue.js et stylisée avec Tailwind CSS. Un bookmarklet c'est quoi? <a
-        href="https://www.debugbar.com/fr/bookmarklets-javascript/" class="text-blue-500"
-        target="_blank">https://www.debugbar.com/fr/bookmarklets-javascript/</a>
+    <h1 class="text-4xl mb-4 font-semibold">SoWeSign en un clique</h1>
+    
     </p>
     <div class="w-full max-w-2xl p-4 bg-white shadow-md rounded flex">
       <div class="w-1/2">
