@@ -26,6 +26,7 @@
         <textarea ref="bookmarkletCode" readonly :value="minifiedCode" rows="10" cols="50"
           class="mt-4 w-full p-2 border border-gray-300 rounded shadow-lg"></textarea>
       </div>
+      <h2 class="text-lg font-semibold mb-2">Copier Coller le code dans un favoris, est cliqué dessus quand vous etes sur la signature SoWeSign</h2>
       <div class="p-4 bg-gray-100 rounded w-full max-w-2xl mt-4 shadow-lg">
         <h2 class="text-lg font-semibold mb-2">Qu'est-ce qu'un bookmarklet ?</h2>
         <p class="text-gray-600 text-sm mb-4">Un bookmarklet est un petit programme JavaScript qui peut être enregistré
