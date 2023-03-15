@@ -27,7 +27,7 @@
           class="mt-4 w-full p-2 border border-gray-300 rounded shadow-lg"></textarea>
       </div>
       <hr>
-      <h2 class="text-lg font-semibold mb-2">Copier Coller le code dans un favoris, est cliqué dessus quand vous etes sur la signature SoWeSign</h2>
+      <h2 class="text-lg font-semibold mb-2">Copier Coller le code dans un favoris [a la place de l'URL], est cliqué dessus quand vous etes sur la signature SoWeSign</h2>
       <hr>
       <div class="p-4 bg-gray-100 rounded w-full max-w-2xl mt-4 shadow-lg">
         <h2 class="text-lg font-semibold mb-2">Qu'est-ce qu'un bookmarklet ?</h2>
