@@ -2,28 +2,29 @@
   <div class="container min-h-screen flex flex-col items-center justify-center bg-gray-100">
     <h1 class="text-4xl mb-4 font-semibold">Application de dessin Vue.js</h1>
     <p class="mb-4 text-xl text-gray-600 max-w-3xl text-center">
-      Une simple application de dessin créée avec Vue.js et stylisée avec Tailwind CSS. Un bookmarklet c'est quoi? <a href="https://www.debugbar.com/fr/bookmarklets-javascript/" class="text-blue-500"
+      Une simple application de dessin créée avec Vue.js et stylisée avec Tailwind CSS. Un bookmarklet c'est quoi? <a
+        href="https://www.debugbar.com/fr/bookmarklets-javascript/" class="text-blue-500"
         target="_blank">https://www.debugbar.com/fr/bookmarklets-javascript/</a>
     </p>
     <div class="w-full max-w-2xl p-4 bg-white shadow-md rounded">
       <canvas ref="canvas" width="400" height="400" @mousedown="startDrawing" @mousemove="draw" @mouseup="stopDrawing"
         class="border-2 border-gray-300"></canvas>
       <div class="controls mt-4 flex flex-wrap gap-2">
-        <button @click="undo"
-          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Annuler</button>
-        <button @click="clearCanvas"
-          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Effacer</button>
+        <button @click="undo" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Reset moi
+          ça</button>
+        <button @click="clearCanvas" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Ctrl
+          Z</button>
         <button @click="generateBookmarkletCode"
           class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Générer le code
           Bookmarklet</button>
         <button v-if="showBookmarkletCode" @click="copyCode"
-          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Copier le code</button>
-      </div>
-      <textarea v-if="showBookmarkletCode" ref="bookmarkletCode" readonly :value="minifiedCode" rows="10" cols="50"
-        class="mt-4 w-full p-2 border border-gray-300 rounded"></textarea>
-    </div>
+          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Copy Code</button>
 
-  </div>
+        <textarea v-if="showBookmarkletCode" ref="bookmarkletCode" readonly :value="minifiedCode" rows="10" cols="50"
+          class="mt-4 w-full p-2 border border-gray-300 rounded"></textarea>
+      </div>
+
+    </div>
 </template>
 
 
@@ -49,6 +50,9 @@ export default {
 
 
   methods: {
+    copyCode() {
+      navigator.clipboard.writeText(this.minifiedCode);
+    },
     startDrawing(event) {
       this.drawing = true;
       this.coordinates.push({ x: event.offsetX, y: event.offsetY, moveTo: true });
