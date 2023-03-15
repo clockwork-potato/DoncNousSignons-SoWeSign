@@ -137,3 +137,12 @@ export default {
 };
 </script>
 
+<style>
+hr {
+  border: none;
+  height: 1px;
+  background-color: #333;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+</style>
