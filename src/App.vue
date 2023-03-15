@@ -138,9 +138,24 @@ export default {
 </script>
 
 <style>
+::-webkit-scrollbar {
+  width: 7px; 
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #3b82f6; 
+  border-radius: 5px; 
+}
+
+
+::-webkit-scrollbar-track {
+  background-color: #93c5fd; 
+  border-radius: 5px; 
+}
 hr {
-  border: none;
-  height: 1px;
+  border: solid 2px #2563eb;
+  height: 0.2vh;
+  width: 43vw;
   background-color: #333;
   margin-top: 1rem;
   margin-bottom: 1rem;
