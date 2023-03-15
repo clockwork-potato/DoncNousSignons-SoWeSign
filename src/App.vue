@@ -23,9 +23,21 @@
         <textarea v-if="showBookmarkletCode" ref="bookmarkletCode" readonly :value="minifiedCode" rows="10" cols="50"
           class="mt-4 w-full p-2 border border-gray-300 rounded"></textarea>
       </div>
+      <div class="p-4 bg-gray-100 rounded">
+        <h2 class="text-lg font-semibold mb-2">Qu'est-ce qu'un bookmarklet ?</h2>
+        <p class="text-gray-600 text-sm mb-4">Un bookmarklet est un petit programme JavaScript qui peut être enregistré
+          dans les favoris ou les signets de votre navigateur. Lorsqu'il est cliqué, il exécute le code JavaScript contenu
+          dans le bookmarklet sur la page web actuelle. Les bookmarklets peuvent être utilisés pour effectuer des tâches
+          spécifiques sur des pages web, comme ajouter un bouton de partage de médias sociaux, afficher des informations
+          supplémentaires sur une page ou même dessiner sur une page web, comme dans l'exemple de code Vue.js que vous
+          avez fourni.</p>
+        <p class="text-gray-600 text-sm">Le code JavaScript contenu dans un bookmarklet doit être court et efficace pour
+          ne pas ralentir la page web et pour s'assurer qu'il fonctionne sur toutes les pages web. C'est pourquoi il est
+          important de minifier le code avant de l'insérer dans un bookmarklet.</p>
+      </div>
 
     </div>
-    </div>
+  </div>
 </template>
 
 
