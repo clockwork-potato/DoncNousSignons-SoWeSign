@@ -1,6 +1,6 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 
-import './assets/main.css'
+//JE MIDENTIFI KOM DU PHP
 
 createApp(App).mount('#app')
