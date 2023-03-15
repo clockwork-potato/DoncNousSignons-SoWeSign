@@ -18,7 +18,7 @@
           class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Générer le code
           Bookmarklet</button>
         <button v-if="showBookmarkletCode" @click="copyCode"
-          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Copy Code</button>
+          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Ctrl C</button>
 
         <textarea v-if="showBookmarkletCode" ref="bookmarkletCode" readonly :value="minifiedCode" rows="10" cols="50"
           class="mt-4 w-full p-2 border border-gray-300 rounded"></textarea>
