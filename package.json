@@ -8,7 +8,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "terser": "^5.16.6",
     "vue": "^3.2.47"
   },
   "devDependencies": {
