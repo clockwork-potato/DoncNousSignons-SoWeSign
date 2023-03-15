@@ -22,7 +22,16 @@
       <textarea v-if="showBookmarkletCode" ref="bookmarkletCode" readonly :value="minifiedCode" rows="10" cols="50"
         class="mt-4 w-full p-2 border border-gray-300 rounded"></textarea>
     </div>
-
+<div class="explanation mt-8 text-gray-600 max-w-3xl text-center">
+      <p class="mb-4">Un bookmarklet est un petit programme JavaScript stocké sous forme de favori dans un navigateur Web.
+        Il peut être utilisé pour exécuter des actions ou des modifications sur une page Web ou pour extraire des
+        informations de celle-ci.</p>
+      <p class="font-semibold mb-2">Ensuite :</p>
+      <ul class="mt-2 list-disc list-inside">
+        <li class="mb-1">minify js du code de sortie</li>
+        <li class="mb-1">faire un favoris en remplacant l'url par le code minifier</li>
+      </ul>
+    </div>
   </div>
 </template>
 
