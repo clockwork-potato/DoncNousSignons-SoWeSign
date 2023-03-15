@@ -1,17 +1,42 @@
 <template>
-  <div class="min-h-screen flex items-center justify-center bg-gray-100">
+  <div class="container min-h-screen flex flex-col items-center justify-center bg-gray-100">
+    <h1 class="text-4xl mb-4 font-semibold">Application de dessin Vue.js</h1>
+    <p class="mb-4 text-xl text-gray-600 max-w-3xl text-center">
+      Une simple application de dessin créée avec Vue.js et stylisée avec Tailwind CSS. Le site est déployé à cette
+      adresse : <a href="https://wonderful-puppy-a2028c.netlify.app/" class="text-blue-500"
+        target="_blank">https://wonderful-puppy-a2028c.netlify.app/</a>
+    </p>
     <div class="w-full max-w-2xl p-4 bg-white shadow-md rounded">
-      <canvas ref="canvas" width="600" height="400" @mousedown="startDrawing" @mousemove="draw" @mouseup="stopDrawing" class="border-2 border-gray-300"></canvas>
-      <div class="mt-4 flex flex-wrap gap-2">
-        <button @click="undo" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Ctrl + z</button>
-        <button @click="clearCanvas" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Reset le tout</button>
-        <button @click="generateBookmarkletCode" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Genere moi le code</button>
-        <button v-if="showBookmarkletCode" @click="copyCode" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Ctrl +c</button>
+      <canvas ref="canvas" width="400" height="400" @mousedown="startDrawing" @mousemove="draw" @mouseup="stopDrawing"
+        class="border-2 border-gray-300"></canvas>
+      <div class="controls mt-4 flex flex-wrap gap-2">
+        <button @click="undo"
+          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Annuler</button>
+        <button @click="clearCanvas"
+          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Effacer</button>
+        <button @click="generateBookmarkletCode"
+          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Générer le code
+          Bookmarklet</button>
+        <button v-if="showBookmarkletCode" @click="copyCode"
+          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Copier le code</button>
       </div>
-      <textarea v-if="showBookmarkletCode" ref="bookmarkletCode" readonly :value="minifiedCode" rows="10" cols="50" class="mt-4 w-full p-2 border border-gray-300 rounded"></textarea>
+      <textarea v-if="showBookmarkletCode" ref="bookmarkletCode" readonly :value="minifiedCode" rows="10" cols="50"
+        class="mt-4 w-full p-2 border border-gray-300 rounded"></textarea>
     </div>
+    <div class="explanation mt-8 text-gray-600 max-w-3xl text-center">
+      <p class="mb-4">Un bookmarklet est un petit programme JavaScript stocké sous forme de favori dans un navigateur Web.
+        Il peut être utilisé pour exécuter des actions ou des modifications sur une page Web ou pour extraire des
+        informations de celle-ci.</p>
+      <p class="font-semibold mb-2">Ensuite :</p>
+      <ul class="mt-2 list-disc list-inside">
+        <li class="mb-1">minify js du code de sortie</li>
+        <li class="mb-1">faire un favoris en remplacant l'url par le code minifier</li>
+      </ul>
+    </div>
+
   </div>
 </template>
+
 
 
 
@@ -30,23 +55,23 @@ export default {
     };
   },
   mounted() {
-  this.context = this.$refs.canvas.getContext("2d");
-},
+    this.context = this.$refs.canvas.getContext("2d");
+  },
 
 
   methods: {
     startDrawing(event) {
-  this.drawing = true;
-  this.coordinates.push({ x: event.offsetX, y: event.offsetY, moveTo: true });
-},
+      this.drawing = true;
+      this.coordinates.push({ x: event.offsetX, y: event.offsetY, moveTo: true });
+    },
 
-draw(event) {
-  if (!this.drawing) return;
-  const x = event.offsetX;
-  const y = event.offsetY;
-  this.coordinates.push({ x, y });
-  this.redrawLines(this.coordinates);
-},
+    draw(event) {
+      if (!this.drawing) return;
+      const x = event.offsetX;
+      const y = event.offsetY;
+      this.coordinates.push({ x, y });
+      this.redrawLines(this.coordinates);
+    },
 
 
     stopDrawing() {
