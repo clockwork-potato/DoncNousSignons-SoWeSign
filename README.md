@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/3c825fc0-a225-425e-bdaf-8b1a073f49cc/deploy-status)](https://app.netlify.com/sites/wonderful-puppy-a2028c/deploys)
+
 # Application de dessin Vue.js
 
 Une simple application de dessin créée avec Vue.js et stylisée avec Tailwind CSS. Le site est déployé à cette adresse : https://wonderful-puppy-a2028c.netlify.app/
