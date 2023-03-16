@@ -22,17 +22,30 @@
             class="bg-yellow-500 hover:bg-yellow-800 text-white font-bold py-2 px-4 rounded shadow-lg">Ctrl C</button>
         </div>
       </div>
+      
+
       <div class="w-1/2 flex justify-end" v-if="showBookmarkletCode">
         <textarea ref="bookmarkletCode" readonly :value="minifiedCode" rows="10" cols="50"
           class="mt-4 w-full p-2 border border-gray-300 rounded shadow-lg"></textarea>
       </div>
       <br>
+      <a v-if="showBookmarkletCode" :href="minifiedCode"
+        class="inline-flex items-center px-4 py-2 bg-blue-500 hover:bg-blue-700 text-white font-semibold rounded-lg shadow-md">
+        <svg class="h-6 w-6 mr-2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M18 2H6C4.89543 2 4 2.89543 4 4V18C4 19.1046 4.89543 20 6 20H18C19.1046 20 20 19.1046 20 18V4C20 2.89543 19.1046 2 18 2ZM16 14H8V12H16V14ZM16 10H8V8H16V10Z"
+            fill="currentColor"></path>
+        </svg>
+        Ajouter directement au favoris
+      </a>
+      <br>
       <hr>
       <br>
-      <h1 class="text-xl font-bold mb-1">Copier Coller le code dans un favoris [a la place de l'URL], est cliqué dessus quand vous etes sur la signature SoWeSign</h1>
+      <h1 class="text-xl font-bold mb-1">Copier Coller le code dans un favoris [a la place de l'URL], est cliqué dessus
+        quand vous etes sur la signature SoWeSign</h1>
       <br>
       <hr>
-      
+
       <div class="p-4 bg-teal-100  rounded w-full max-w-2xl mt-4 shadow-lg">
         <h2 class="text-lg font-semibold mb-2">Qu'est-ce qu'un bookmarklet ?</h2>
         <p class="text-gray-600 text-sm mb-4">Un bookmarklet est un petit programme JavaScript qui peut être enregistré
@@ -142,19 +155,20 @@ export default {
 
 <style>
 ::-webkit-scrollbar {
-  width: 7px; 
+  width: 7px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #3b82f6; 
-  border-radius: 5px; 
+  background-color: #3b82f6;
+  border-radius: 5px;
 }
 
 
 ::-webkit-scrollbar-track {
-  background-color: #93c5fd; 
-  border-radius: 5px; 
+  background-color: #93c5fd;
+  border-radius: 5px;
 }
+
 hr {
   border: solid 2px #2563eb;
   height: 0.4vh;
@@ -162,5 +176,4 @@ hr {
   background-color: #333;
   margin-top: 1rem;
   margin-bottom: 1rem;
-}
-</style>
+}</style>

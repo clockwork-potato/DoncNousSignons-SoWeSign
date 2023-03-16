@@ -1,0 +1,5 @@
+Salut tout le monde 👋
+
+Vous savez, ces mouvements qui vous agacent sur certains sites ? Oui, je parle de ces animations du poignet, qui semblent durer une éternité et qui ralentissent votre vie. Eh bien, j'en avais assez moi aussi, et j'ai décidé de créer une solution : DoncNousSignons !
+
+💡 SoWeSign {DoncNousSignons} Bookmarklet ! est un outil simple et efficace qui vous permet de désactiver votre cerveau sur les sites qui demandent votre signature de temps a autres. Vous pouvez l'ajouter à votre navigateur en quelques clics, comme un favoris en remplaçant l'url pas un code Javascript et il vous fera gagner un temps précieux dans votre vie d'étudiant déjà bien chargé.
